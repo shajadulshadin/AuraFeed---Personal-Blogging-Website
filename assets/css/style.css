@@ -57,8 +57,8 @@ body{
 /* right sidebar section starts here */
 
 .right-sidebar-item img{
-    width: 9rem;
-    height: 9rem;
+    width: 9rem !important;
+    height: 9rem !important;
     object-fit: cover;
 }
 

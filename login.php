@@ -29,7 +29,7 @@ if(isset($_SESSION['authentication'])){
             <h1 class="text-center text-uppercase mb-4 letter-spacing-1">Get Access</h1>
             <span class="d-block mb-5 text-center text-gray letter-spacing-1 fs-5">Enter your login credential to continue</span>
             <input type="email" name="email" placeholder="Your valid email" required class="mb-3 p-3 rounded border letter-spacing-2 fs-5 w-100"><br><br>
-            <input type="password" name="password" placeholder="Enter your password" class="p-3 rounded border letter-spacing-2 fs-5 w-100"><br><br>
+            <input type="password" name="password" required placeholder="Enter your password" class="p-3 rounded border letter-spacing-2 fs-5 w-100"><br><br>
             <?php
                 if(isset($_GET["login_failed"])){
                     echo "<div class='text-center text-uppercase bg-warning rounded fs-3 letter-spacing-1'>Wrong Login Credential</div>";

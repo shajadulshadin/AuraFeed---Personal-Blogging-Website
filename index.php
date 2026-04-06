@@ -8,27 +8,41 @@
             <div class="row pt-2">
                 <!-- feed section starts here -->
                 <div class="col-lg-8 col-12">
-                    <div class="feed-item rounded mb-5">
-                        <img src="assets/img/blog-item-5.jpeg" alt="blog" class="w-100 rounded">
-                        <div
-                            class="feed-item-metadata mb-3 px-3 pt-3 d-flex align-items-center justify-content-between fs-4">
-                            <div class="metadata-left">
-                                <a href="category.php"
-                                    class="text-decoration-none bg-danger text-white rounded-pill px-4 fw-bold me-3">Technology</a>
-                                <span>14 Jan 2026</span>
+                    <?php
+                    
+                    require "includes/configuration.php";
+                    $loadQuery = $connection->prepare("SELECT * FROM blog_post WHERE status = 1 ORDER BY id DESC");
+                    $loadQuery->execute();
+                    $loadAllBlogs = $loadQuery->fetchAll(PDO::FETCH_ASSOC);
+                    if(count($loadAllBlogs) > 0){
+                        foreach($loadAllBlogs as $post){
+                            ?>
+                            <div class="feed-item rounded mb-5">
+                                <img src="assets/img/upload/<?php echo $post['image'];?>" alt="blog" class="w-100 rounded">
+                                <div
+                                    class="feed-item-metadata mb-3 px-3 pt-3 d-flex align-items-center justify-content-between fs-4">
+                                    <div class="metadata-left">
+                                        <a href="category.php"
+                                            class="text-decoration-none bg-danger text-white rounded-pill px-4 fw-bold me-3"><?php echo $post['category'];?></a>
+                                        <span><?php echo $post['date']?></span>
+                                    </div>
+                                    <div class="d-none d-lg-block metadata-right text-gray letter-spacing-1">
+                                        <?php echo $post['author']?>
+                                    </div>
+                                </div>
+                                <div class="px-3 pb-4">
+                                    <a href="single.php?id=<?php echo $post['id'];?>"
+                                        class="feed-title text-decoration-none fs-4 text-dark lh-lg letter-spacing-2">
+                                        <?php echo $post['title']?>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="d-none d-lg-block metadata-right text-gray letter-spacing-1">
-                                By Admin
-                            </div>
-                        </div>
-                        <div class="px-3 pb-4">
-                            <a href="single.php"
-                                class="feed-title text-decoration-none fs-4 text-dark lh-lg letter-spacing-2">
-                                Creating and regularly updating a website with articles, news, or multimedia content,
-                                typically in a reverse chronological format.
-                            </a>
-                        </div>
-                    </div>
+
+                            <?php
+                        }
+                    }
+                    ?>
+
                     <!-- pagination starts here -->
 
                     <div class="text-center mt-5 mb-5">
@@ -53,33 +67,24 @@
                 <div class="col-12 col-lg-4 d-none d-lg-block">
                     <div class="most-read-container">
                         <h2 class="mb-5 fs-1 letter-spacing-1">Most Read</h2>
-                        <div class="right-sidebar-item mb-5 d-flex">
-                            <img src="assets/img/blog-item-2.png" alt="blog" class="rounded">
-                            <span class="fs-4 letter-spacing-1 ms-3" role="button">
-                                <a href="single.php" class="text-decoration-none text-dark">Complete pathway to become
-                                    a
-                                    software
-                                    developer</a>
-                            </span>
-                        </div>
-                        <div class="right-sidebar-item mb-5 d-flex">
-                            <img src="assets/img/blog-item-2.png" alt="blog" class="rounded">
-                            <span class="fs-4 letter-spacing-1 ms-3" role="button">
-                                <a href="single.php" class="text-decoration-none text-dark">Complete pathway to become
-                                    a
-                                    software
-                                    developer</a>
-                            </span>
-                        </div>
-                        <div class="right-sidebar-item mb-5 d-flex">
-                            <img src="assets/img/blog-item-2.png" alt="blog" class="rounded">
-                            <span class="fs-4 letter-spacing-1 ms-3" role="button">
-                                <a href="single.php" class="text-decoration-none text-dark">Complete pathway to become
-                                    a
-                                    software
-                                    developer</a>
-                            </span>
-                        </div>
+                        <?php
+                            $loadQuery = $connection->prepare("SELECT * FROM blog_post ORDER BY views DESC LIMIT 3");
+                            $loadQuery->execute();
+                            $loadAllBlogs = $loadQuery->fetchAll(PDO::FETCH_ASSOC);
+                        if(count($loadAllBlogs) > 0){
+                            foreach($loadAllBlogs as $post){
+                                ?>
+                                    <div class="right-sidebar-item mb-5 d-flex">
+                                    <img src="assets/img/upload/<?php echo $post['image']?>" alt="blog" class="rounded">
+                                    <span class="fs-4 letter-spacing-1 ms-3" role="button">
+                                        <a href="single.php?id=<?php echo $post['id'];?>" class="text-decoration-none text-dark"><?php echo $post['title'];?></a>
+                                    </span>
+                                </div>
+                                
+                                <?php
+                            }
+                        }
+                        ?>
                     </div>
                     <div class="category-container">
                         <h2 class="mb-5 fs-1 letter-spacing-1">Top categories</h2>
@@ -115,33 +120,24 @@
                     </div>
                     <div class="most-read-container trending-container mt-5">
                         <h2 class="mb-5 fs-1 letter-spacing-1">Trending now</h2>
-                        <div class="right-sidebar-item mb-5 d-flex">
-                            <img src="assets/img/blog-item-1.jpg" alt="blog" class="rounded">
-                            <span class="fs-4 letter-spacing-1 ms-3" role="button">
-                                <a href="single.php" class="text-decoration-none text-dark">Complete pathway to become
-                                    a
-                                    software
-                                    developer</a>
-                            </span>
-                        </div>
-                        <div class="right-sidebar-item mb-5 d-flex">
-                            <img src="assets/img/blog-item-1.jpg" alt="blog" class="rounded">
-                            <span class="fs-4 letter-spacing-1 ms-3" role="button">
-                                <a href="single.php" class="text-decoration-none text-dark">Complete pathway to become
-                                    a
-                                    software
-                                    developer</a>
-                            </span>
-                        </div>
-                        <div class="right-sidebar-item mb-5 d-flex">
-                            <img src="assets/img/blog-item-1.jpg" alt="blog" class="rounded">
-                            <span class="fs-4 letter-spacing-1 ms-3" role="button">
-                                <a href="single.php" class="text-decoration-none text-dark">Complete pathway to become
-                                    a
-                                    software
-                                    developer</a>
-                            </span>
-                        </div>
+                        <?php
+                            $loadQuery = $connection->prepare("SELECT * FROM blog_post WHERE trending = 1 ORDER BY views DESC LIMIT 3");
+                            $loadQuery->execute();
+                            $loadAllBlogs = $loadQuery->fetchAll(PDO::FETCH_ASSOC);
+                            if(count($loadAllBlogs) > 0){
+                                foreach($loadAllBlogs as $post){
+                                    ?>
+                                        <div class="right-sidebar-item mb-5 d-flex">
+                                        <img src="assets/img/upload/<?php echo $post['image']?>" alt="blog" class="rounded">
+                                        <span class="fs-4 letter-spacing-1 ms-3" role="button">
+                                            <a href="single.php?id=<?php echo $post['id'];?>" class="text-decoration-none text-dark"><?php echo $post['title'];?></a>
+                                        </span>
+                                    </div>
+                                    
+                                    <?php
+                                }
+                            }
+                        ?>
                     </div>
                     <div class="blogs-container d-flex flex-wrap">
                         <div class="px-3 py-2 rounded-pill letter-spacing-1 fs-5 me-3 mb-4" role="button"><a

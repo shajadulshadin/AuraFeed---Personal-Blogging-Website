@@ -60,106 +60,37 @@ if(!isset($_SESSION['authentication'])){
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="py-5">#101</td>
-                    <td class="text-center py-5">10 Tips for Minimalist UI Design</td>
-                    <td class="py-5">Shajadul Shadin</td>
-                    <td class="py-5"><span class="badge bg-success">Published</span></td>
-                    <td class="py-5">
-                        <i class="fa-regular fa-trash-can text-danger me-2" role="button"></i>
-                        <i class="fa-regular fa-pen-to-square text-primary" role="button"></i>
-                    </td>
-                </tr>
+                <?php
+                    require "../includes/configuration.php";
+                    $loadQuery = $connection->prepare("SELECT * FROM blog_post");
+                    $loadQuery->execute();
+                    $loadAllBlogs = $loadQuery->fetchAll(PDO::FETCH_ASSOC);
+                    if(count($loadAllBlogs) > 0){
+                        foreach($loadAllBlogs as $post){
+                            ?>
+                                <tr>
+                                    <td class="py-5"><?php echo $post['id'];?></td>
+                                    <td class="text-start py-5"><?php echo $post['title'];?></td>
+                                    <td class="py-5"><?php echo $post['author'];?></td>
+                                    <td class="py-5">
+                                    <?php
+                                        if($post["status"] == 0){
+                                            echo "<span class='badge text-dark bg-warning'>Saved</span>";
+                                        }else{
+                                            echo "<span class='badge bg-success'>Published</span>";
+                                        }
+                                    ?>
+                                    </td>
+                                    <td class="py-5">
+                                        <i class="fa-regular fa-trash-can text-danger me-2" data-id="<?php echo $post['id']; ?>" role="button"></i>
+                                        <i class="fa-regular fa-pen-to-square text-primary" data-id="<?php echo $post['id']; ?>" role="button"></i>
+                                    </td>
+                                </tr>
+                            <?php
+                        }
+                    }
+                ?>
+
             </tbody>
         </table>
 
