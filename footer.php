@@ -29,19 +29,19 @@
                 <div class="col-12 col-lg-4 text-lg-center text-start mt-5">
                     <h3 class="fs-1 letter-spacing-1">Top categories</h3>
                     <ul class="list-unstyled fs-3 mt-5">
-                        <li class="mb-3 letter-spacing-2"><a href="category.php"
+                        <li class="mb-3 letter-spacing-2"><a href="category.php?search=technology"
                                 class="text-decoration-none text-gray">Technology</a>
                         </li>
-                        <li class="mb-3 letter-spacing-2"><a href="category.php"
+                        <li class="mb-3 letter-spacing-2"><a href="category.php?search=space"
                                 class="text-decoration-none text-gray">Space</a>
                         </li>
-                        <li class="mb-3 letter-spacing-2"><a href="category.php"
+                        <li class="mb-3 letter-spacing-2"><a href="category.php?search=fashion"
                                 class="text-decoration-none text-gray">Fashion</a>
                         </li>
-                        <li class="mb-3 letter-spacing-2"><a href="category.php"
+                        <li class="mb-3 letter-spacing-2"><a href="category.php?search=physics"
                                 class="text-decoration-none text-gray">Physics</a>
                         </li>
-                        <li class="mb-3 letter-spacing-2"><a href="category.php"
+                        <li class="mb-3 letter-spacing-2"><a href="category.php?search=geography"
                                 class="text-decoration-none text-gray">Geography</a>
                         </li>
                     </ul>
