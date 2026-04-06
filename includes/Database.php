@@ -1,7 +1,7 @@
 <?php
 
 class Database {
-    private $server = 'mysql:host=localhost;dbname=crud_operation';
+    private $server = 'mysql:host=localhost;dbname=aurafeed';
     private $user = 'root';
     private $pass = '';
 
@@ -145,8 +145,8 @@ $obj = new Database();
 // $obj->update( 'student', [ 'name' => 'Amir Khan', 'subject' => 'Arobic' ], ['id'=>25] );
 // $obj->delete('student', ['id'=>28]);
 
-echo '<pre>';
-print_r( $obj->getResult() );
-echo '</pre>';
+// echo '<pre>';
+// print_r( $obj->getResult() );
+// echo '</pre>';
 
 ?>
