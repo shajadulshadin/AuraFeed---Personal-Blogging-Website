@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['authentication'])){
+    header("Location: ../login.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +32,7 @@
                     class="text-decoration-none text-white fs-4 fw-bold me-4 letter-spacing-1">Published</a>
                 <a href="index.php" class="text-decoration-none text-white fs-4 fw-bold me-4 letter-spacing-1">+ Save
                     Post</a>
-                <a href="../index.php"
+                <a href="../includes/functions.php?logout=1"
                     class="text-decoration-none text-white bg-dark fs-4 border-0 px-4 py-2 fw-bold py-1 rounded">Log out</a>
             </div>
         </div>

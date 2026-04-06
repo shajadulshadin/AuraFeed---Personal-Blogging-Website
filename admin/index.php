@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION['authentication'])){
+    header("Location: ../index.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +31,7 @@
                     Front-end</a>
                 <a href="post.php" class="text-decoration-none text-white fs-4 fw-bold me-4 letter-spacing-1">+ New
                     Post</a>
-                <a href="../index.php"
+                <a href="../includes/functions.php?logout=1"
                     class="text-decoration-none text-white bg-dark fs-4 border-0 px-4 py-2 fw-bold py-1 rounded">Log
                     out</a>
             </div>
