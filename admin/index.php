@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AuraFeed | Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../admin/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 
 <body>
 
     <header class="bg-danger py-3">
         <div class="header-container container-fluid d-flex align-items-center justify-content-between">
-            <a href="index.html" class="letter-spacing-1 fw-bold text-white fs-3 text-decoration-none">AuraFeed</a>
+            <a href="index.php" class="letter-spacing-1 fw-bold text-white fs-3 text-decoration-none">AuraFeed</a>
             <div class="admin-header-right">
-                <a href="../index.html" target="_blank"
+                <a href="../index.php" target="_blank"
                     class="text-decoration-none text-white fs-4 fw-bold me-4 letter-spacing-1">Load
                     Front-end</a>
-                <a href="post.html" class="text-decoration-none text-white fs-4 fw-bold me-4 letter-spacing-1">+ New
+                <a href="post.php" class="text-decoration-none text-white fs-4 fw-bold me-4 letter-spacing-1">+ New
                     Post</a>
-                <a href="../index.html"
+                <a href="../index.php"
                     class="text-decoration-none text-white bg-dark fs-4 border-0 px-4 py-2 fw-bold py-1 rounded">Log
                     out</a>
             </div>
@@ -169,7 +169,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/f7d8998257.js" crossorigin="anonymous"></script>
-    <script src="../admin/js/script.js"></script>
+    <script src="../assets/js/admin.js" defer></script>
 </body>
 
 </html>

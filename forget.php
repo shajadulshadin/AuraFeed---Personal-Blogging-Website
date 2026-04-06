@@ -8,7 +8,7 @@
     <!-- bootstrap css cdn here -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <!-- main css here -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="login-signup-bg">
@@ -27,7 +27,7 @@
             <input type="submit" value="Enter Code"
                 class="d-none w-100 p-3 bg-danger text-white fw-bold rounded border-0 letter-spacing-1 fs-5 my-3">
             <span class="fw-bold letter-spacing-2 fs-5 text-center d-block">Are you having trouble? <a
-                    href="contact.html" class="text-decoration-none text-danger">Contact us for help</a></span>
+                    href="contact.php" class="text-decoration-none text-danger">Contact us for help</a></span>
         </div>
     </form>
 
